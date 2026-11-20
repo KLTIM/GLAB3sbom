@@ -1,0 +1,66 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:05a5905a-4d7d-59a6-8f0a-50763e3273f0",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-11-07T00:00:00Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "lab3-embedded-sbom-generator",
+          "version": "1.0.0"
+        }
+      ]
+    },
+    "component": {
+      "type": "firmware",
+      "bom-ref": "student1_hmac",
+      "name": "HMAC-SHA256 Sensor Firmware",
+      "version": "1.0.0",
+      "description": "Система управления беспилотным такси, вариант 24"
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/openssl@4.1.0",
+      "name": "openssl",
+      "version": "4.1.0",
+      "description": "TLS, HMAC и AES-GCM",
+      "purl": "pkg:generic/openssl@4.1.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/cjson@1.7.19",
+      "name": "cjson",
+      "version": "1.7.19",
+      "description": "Разбор конфигурации и диагностических сообщений",
+      "purl": "pkg:generic/cjson@1.7.19",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "student1_hmac",
+      "dependsOn": [
+        "pkg:generic/openssl@4.1.0",
+        "pkg:generic/cjson@1.7.19"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:b02c5968-fff1-5a3a-acfc-a3117f0f364b",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-11-07T00:00:00Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "lab3-embedded-sbom-generator",
+          "version": "1.0.0"
+        }
+      ]
+    },
+    "component": {
+      "type": "firmware",
+      "bom-ref": "taxi-firmware",
+      "name": "Autonomous Taxi Embedded Security Suite",
+      "version": "1.0.0",
+      "description": "Система управления беспилотным такси, вариант 24"
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/openssl@4.1.0",
+      "name": "openssl",
+      "version": "4.1.0",
+      "description": "TLS, HMAC и AES-GCM",
+      "purl": "pkg:generic/openssl@4.1.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/mbedtls@4.2.0",
+      "name": "mbedtls",
+      "version": "4.2.0",
+      "description": "ECDSA и проверка подписи загрузчика",
+      "purl": "pkg:generic/mbedtls@4.2.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/cjson@1.7.19",
+      "name": "cjson",
+      "version": "1.7.19",
+      "description": "Разбор конфигурации и диагностических сообщений",
+      "purl": "pkg:generic/cjson@1.7.19",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/curl@8.23.0",
+      "name": "curl",
+      "version": "8.23.0",
+      "description": "HTTPS-клиент OTA-обновлений",
+      "purl": "pkg:generic/curl@8.23.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "curl"
+          }
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "taxi-firmware",
+      "dependsOn": [
+        "pkg:generic/openssl@4.1.0",
+        "pkg:generic/mbedtls@4.2.0",
+        "pkg:generic/cjson@1.7.19",
+        "pkg:generic/curl@8.23.0"
+      ]
+    }
+  ]
+}

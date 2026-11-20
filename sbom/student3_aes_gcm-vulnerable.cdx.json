@@ -1,0 +1,68 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:c2b1d896-25a2-5bb6-95a4-c403e7328057",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-11-07T00:00:00Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "lab3-embedded-sbom-generator",
+          "version": "1.0.0"
+        }
+      ]
+    },
+    "component": {
+      "type": "firmware",
+      "bom-ref": "student3_aes_gcm",
+      "name": "AES-GCM OTA Client Firmware",
+      "version": "1.0.0",
+      "description": "Система управления беспилотным такси, вариант 24"
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/openssl@1.1.1q",
+      "name": "openssl",
+      "version": "1.1.1q",
+      "description": "TLS, HMAC и AES-GCM",
+      "purl": "pkg:generic/openssl@1.1.1q",
+      "cpe": "cpe:2.3:a:openssl:openssl:1.1.1q:*:*:*:*:*:*:*",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/curl@7.81.0",
+      "name": "curl",
+      "version": "7.81.0",
+      "description": "HTTPS-клиент OTA-обновлений",
+      "purl": "pkg:generic/curl@7.81.0",
+      "cpe": "cpe:2.3:a:haxx:curl:7.81.0:*:*:*:*:*:*:*",
+      "licenses": [
+        {
+          "license": {
+            "id": "curl"
+          }
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "student3_aes_gcm",
+      "dependsOn": [
+        "pkg:generic/openssl@1.1.1q",
+        "pkg:generic/curl@7.81.0"
+      ]
+    }
+  ]
+}

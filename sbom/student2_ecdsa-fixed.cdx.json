@@ -1,0 +1,66 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:9b8cc113-a431-5f2a-8452-ee90c041d606",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-11-07T00:00:00Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "lab3-embedded-sbom-generator",
+          "version": "1.0.0"
+        }
+      ]
+    },
+    "component": {
+      "type": "firmware",
+      "bom-ref": "student2_ecdsa",
+      "name": "ECDSA Command Verification Firmware",
+      "version": "1.0.0",
+      "description": "Система управления беспилотным такси, вариант 24"
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/mbedtls@4.2.0",
+      "name": "mbedtls",
+      "version": "4.2.0",
+      "description": "ECDSA и проверка подписи загрузчика",
+      "purl": "pkg:generic/mbedtls@4.2.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/cjson@1.7.19",
+      "name": "cjson",
+      "version": "1.7.19",
+      "description": "Разбор конфигурации и диагностических сообщений",
+      "purl": "pkg:generic/cjson@1.7.19",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "student2_ecdsa",
+      "dependsOn": [
+        "pkg:generic/mbedtls@4.2.0",
+        "pkg:generic/cjson@1.7.19"
+      ]
+    }
+  ]
+}

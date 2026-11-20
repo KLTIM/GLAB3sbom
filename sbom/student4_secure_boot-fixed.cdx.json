@@ -1,0 +1,66 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:41e2d323-b62b-5c57-a4ce-0aecd9e33af1",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-11-07T00:00:00Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "lab3-embedded-sbom-generator",
+          "version": "1.0.0"
+        }
+      ]
+    },
+    "component": {
+      "type": "firmware",
+      "bom-ref": "student4_secure_boot",
+      "name": "Secure Boot Image Verification Firmware",
+      "version": "1.0.0",
+      "description": "Система управления беспилотным такси, вариант 24"
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/mbedtls@4.2.0",
+      "name": "mbedtls",
+      "version": "4.2.0",
+      "description": "ECDSA и проверка подписи загрузчика",
+      "purl": "pkg:generic/mbedtls@4.2.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/cjson@1.7.19",
+      "name": "cjson",
+      "version": "1.7.19",
+      "description": "Разбор конфигурации и диагностических сообщений",
+      "purl": "pkg:generic/cjson@1.7.19",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "student4_secure_boot",
+      "dependsOn": [
+        "pkg:generic/mbedtls@4.2.0",
+        "pkg:generic/cjson@1.7.19"
+      ]
+    }
+  ]
+}
