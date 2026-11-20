@@ -1,0 +1,91 @@
+{
+  "project": "Variant 24 — Autonomous Taxi",
+  "variants": [
+    {
+      "id": "student1_hmac",
+      "student": "Салий Я.Б.",
+      "name": "HMAC-SHA256 Sensor Firmware",
+      "file": "src/student1_hmac/hmac_vote.c",
+      "components": [
+        "openssl",
+        "cjson"
+      ],
+      "role": "Аутентификация голосов каналов TMR"
+    },
+    {
+      "id": "student2_ecdsa",
+      "student": "Воронцов И.М.",
+      "name": "ECDSA Command Verification Firmware",
+      "file": "src/student2_ecdsa/ecdsa_vote.c",
+      "components": [
+        "mbedtls",
+        "cjson"
+      ],
+      "role": "Проверка подписи команд оператора"
+    },
+    {
+      "id": "student3_aes_gcm",
+      "student": "Клоков Т.Е.",
+      "name": "AES-GCM OTA Client Firmware",
+      "file": "src/student3_aes_gcm/ota_crypto.c",
+      "components": [
+        "openssl",
+        "curl"
+      ],
+      "role": "Защищённая загрузка и расшифрование OTA"
+    },
+    {
+      "id": "student4_secure_boot",
+      "student": "Свешников Е.В.",
+      "name": "Secure Boot Image Verification Firmware",
+      "file": "src/student4_secure_boot/secure_boot.c",
+      "components": [
+        "mbedtls",
+        "cjson"
+      ],
+      "role": "Проверка подписи образа перед загрузкой"
+    }
+  ],
+  "components": {
+    "openssl": {
+      "name": "openssl",
+      "version": "1.1.1q",
+      "fixed": "4.1.0",
+      "purl": "pkg:generic/openssl@1.1.1q",
+      "fixed_purl": "pkg:generic/openssl@4.1.0",
+      "cpe": "cpe:2.3:a:openssl:openssl:1.1.1q:*:*:*:*:*:*:*",
+      "license": "Apache-2.0",
+      "description": "TLS, HMAC и AES-GCM"
+    },
+    "mbedtls": {
+      "name": "mbedtls",
+      "version": "2.26.0",
+      "fixed": "4.2.0",
+      "purl": "pkg:generic/mbedtls@2.26.0",
+      "fixed_purl": "pkg:generic/mbedtls@4.2.0",
+      "cpe": "cpe:2.3:a:arm:mbed_tls:2.26.0:*:*:*:*:*:*:*",
+      "license": "Apache-2.0",
+      "description": "ECDSA и проверка подписи загрузчика"
+    },
+    "cjson": {
+      "name": "cjson",
+      "version": "1.7.16",
+      "fixed": "1.7.19",
+      "purl": "pkg:generic/cjson@1.7.16",
+      "fixed_purl": "pkg:generic/cjson@1.7.19",
+      "cpe": "cpe:2.3:a:cjson_project:cjson:1.7.16:*:*:*:*:*:*:*",
+      "license": "MIT",
+      "description": "Разбор конфигурации и диагностических сообщений"
+    },
+    "curl": {
+      "name": "curl",
+      "version": "7.81.0",
+      "fixed": "8.23.0",
+      "purl": "pkg:generic/curl@7.81.0",
+      "fixed_purl": "pkg:generic/curl@8.23.0",
+      "cpe": "cpe:2.3:a:haxx:curl:7.81.0:*:*:*:*:*:*:*",
+      "license": "curl",
+      "description": "HTTPS-клиент OTA-обновлений"
+    }
+  }
+}
